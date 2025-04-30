@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Formulario para agregar libros -->
+        <div class="form-container">
+            <h2>Agregar Nuevo Libro</h2>
+            <form id="form-libro">
+                <div class="form-group">
+                    <label for="titulo">Título:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="autor">Autor:</label>
+                    <input type="text" id="autor" name="autor" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoria">Categoría:</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Ficción">Ficción</option>
+                        <option value="No Ficción">No Ficción</option>
+                        <option value="Ciencia">Ciencia</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Filosofía">Filosofía</option>
+                        <option value="Tecnología">Tecnología</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" rows="3"></textarea>
+                </div>
+                
+                <button type="submit">Agregar Libro</button>
+                <div id="form-messages"></div>
+            </form>
+        </div>
+        
+        <!-- Filtros de categoría -->
+        <div class="filters">
+            <button class="category-btn active" data-categoria="todos">Todos</button>
+            <button class="category-btn" data-categoria="Ficción">Ficción</button>
+            <button class="category-btn" data-categoria="No Ficción">No Ficción</button>
+            <button class="category-btn" data-categoria="Ciencia">Ciencia</button>
+            <button class="category-btn" data-categoria="Historia">Historia</button>
+            <button class="category-btn" data-categoria="Filosofía">Filosofía</button>
+            <button class="category-btn" data-categoria="Tecnología">Tecnología</button>
+        </div>
+        
+        <!-- Contenedor para mostrar los libros -->
+        <div id="libros" class="libro-container"></div>
+    </div>
+    
+    <!-- Modal para editar libros -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Editar Libro</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-titulo">Título:</label>
+                    <input type="text" id="edit-titulo" name="edit-titulo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-autor">Autor:</label>
+                    <input type="text" id="edit-autor" name="edit-autor" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-categoria">Categoría:</label>
+                    <select id="edit-categoria" name="edit-categoria" required>
+                        <option value="">Seleccione una categoría</option>
+                        <option value="Ficción">Ficción</option>
+                        <option value="No Ficción">No Ficción</option>
+                        <option value="Ciencia">Ciencia</option>
+                        <option value="Historia">Historia</option>
+                        <option value="Filosofía">Filosofía</option>
+                        <option value="Tecnología">Tecnología</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-descripcion">Descripción:</label>
+                    <textarea id="edit-descripcion" name="edit-descripcion" rows="3"></textarea>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="close-modal">Cancelar</button>
+                    <button type="submit">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
